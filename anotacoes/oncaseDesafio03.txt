@@ -1,0 +1,29 @@
+[1]
+Users & Roles - utilizado caso seja utilizado o Pentaho Security como security provider.
+   Permite adicionar e excluir papeis, definindo suas permissões[2][3][4].
+   Permite adicionar e excluir usuários, editar suas senhas e seus papeis.
+
+   No caso de utilizar o Pentaho Security, utilizaria esta seção para criar novas contas de usuários, associados aos papeis adequados, para novos usuários do sistema; e para ajustar papeis ou remover contas de usuários de acordo com a necessidade.
+Authentication
+   Permite configurar um security provider dentre LDAP e AD[5].
+
+   Utilizaria esta seção caso fosse definido que o Pentaho BI Server teria seus usuários e papeis gerenciados por um security provider externo(LDAP ou AD). Na documentação sugere-se que seja utilizado um security provider externo para ambientes de produção, e o Pentaho Security para testes, avaliações do sistema e desenvolvimento.
+Mail Server
+   Permite configurar um servidor de email a ser utilizado para envio de emails pelo Pentaho BI Server[6].
+
+   Utilizaria quando fosse necessário que o Pentaho BI Server enviasse emails[6].
+Licenses
+   Permite gerenciar as licenças das ferramentas da Pentaho, visualizando a data de início e de fim das licenças vigentes, as versões a que se aplicam e permitindo que seja feito upload de novos arquivos de licenças(extensão .lic)[7].
+
+   Utilizaria quando adquirisse uma licença de alguma ferramenta da Pentaho, removendo a antiga e adicionando a nova.
+Settings
+   Permite remover, manualmente ou periodicamente, arquivos gerados pela plataforma há mais de N dias(N é parâmetro da operação)[8].
+
+[1] - Utilizando documentação do 6.0(https://help.pentaho.com/Documentation/6.0/0H0/060/010/010)
+[2] - Detalhe em https://help.pentaho.com/Documentation/6.0/0H0/060/010/040/000
+[3] - Na documentação tanto da versão 6.0 quanto da 5.4 é listada a permissão "Executes Transformation & Jobs", mas no meu servidor ela não é listada(versão 6.0), muito menos no print da tela de permissões na documentação da versão 6.0.
+[4] - O papel Authenticated se aplica a todos os usuários, independente de terem ou não outros papeis.
+[5] - Detalhe em https://help.pentaho.com/Documentation/6.0/0H0/060/010/040
+[6] - Ainda não sei em que situações o Pentaho BI Server envia emails.
+[7] - Detalhe em https://help.pentaho.com/Documentation/6.0/0H0/060/010/020
+[8] - Não ficou claro quais os arquivos que são removidos.
