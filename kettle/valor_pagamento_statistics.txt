@@ -1,0 +1,2 @@
+Valor Pagamento(N),Valor Pagamento(mean),Valor Pagamento(stdDev),Valor Pagamento(min),Valor Pagamento(max),Valor Pagamento(median)
+10162,1577.8,31060,501.1,3126651.7,861.2
