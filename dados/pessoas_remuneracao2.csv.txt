@@ -1,0 +1,6 @@
+pessoa_id;nome;pessoa_id_1;valor
+1; Abelardo Vieira Mota      ;1; 3000
+2; João Gomes                ;2; 1000
+3; Luis Inácio Lula da Silva ;3; 200000
+4; O homem mais rico do mundo;4; 20000000
+5; Não quero dinheiro        ;5; 10
