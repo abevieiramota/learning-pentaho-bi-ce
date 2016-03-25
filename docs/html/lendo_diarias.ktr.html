@@ -1,0 +1,634 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=8">
+      <meta name="Generator" content="kettle-cookbook - see http://code.google.com/p/kettle-cookbook/">
+      <!--
+            Debugging info - please ignore
+            param_filename: "C:/Users/abevieira/Documents/GitHub/learning-pentaho-bi-ce/kettle/lendo_diarias.ktr"
+            normalized_filename: "C:/Users/abevieira/Documents/GitHub/learning-pentaho-bi-ce/kettle/lendo_diarias.ktr"
+            file: 1
+            document: 1
+            document-element: transformation
+            name: 
+            relative-path: ""
+            documentation-root: ".."
+        -->
+      <title>Kettle Documentation: transformation ""</title>
+      <link rel="shortcut icon" type="image/x-icon" href="../images/spoon.">
+      <link rel="stylesheet" type="text/css" href="../css/default.css">
+      <link rel="stylesheet" type="text/css" href="../css/kettle.css">
+      <link rel="stylesheet" type="text/css" href="../css/transformation.css">
+      <link rel="stylesheet" type="text/css" href="../css/shCoreDefault.css">
+   </head>
+   <body class="kettle-file">
+      <div class="quicklinks"><a href="#diagram">Diagram</a>
+         |   <a href="#Steps">Steps</a>
+         |   <a href="#parameters">Parameters</a>
+         |   <a href="#variables">Variables</a>
+         |   <a href="#connections">Database Connections</a></div>
+      <h1>lendo_diarias</h1>
+      <table>
+         <thead>
+            <tr>
+               <th>What?</th>
+               <th>Who?</th>
+               <th>When?</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>Created</th>
+               <td>-</td>
+               <td>2016/03/19 20:01:21.157</td>
+            </tr>
+            <tr>
+               <th>Modified</th>
+               <td>-</td>
+               <td>2016/03/19 20:34:58.549</td>
+            </tr>
+         </tbody>
+         <tfoot>
+            <tr>
+               <th>Version</th>
+               <td></td>
+            </tr>
+            <tr>
+               <th>Status</th>
+               <td></td>
+            </tr>
+         </tfoot>
+      </table>
+      <p>
+         This transformation does not have a description.
+         
+      </p>
+      <h2><a name="parameters">Parameters</a></h2>
+      <p>
+         This transformation does not define any parameters.
+         
+      </p>
+      <h2>High Level Data Flow Diagram</h2>
+      <table>
+         <thead>
+            <tr>
+               <th>Input (1)</th>
+               <th>Transform</th>
+               <th>Output (1)</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  <div><a href="#Arquivo de di%C3%A1rias-text">Arquivo de diárias</a></div>
+               </td>
+               <td></td>
+               <td>
+                  <div><a href="#Text file output-text">Text file output</a></div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <h2><a name="diagram">Diagram</a></h2>
+      <div class="diagram" id="canvas" style="&#xA;          width: 464px;&#xA;          height: 288px;&#xA;      ">
+         <div class="diagram" id="thediagram" style="&#xA;              width: 464px;&#xA;              height: 288px;&#xA;          "><a name="Arquivo de di%C3%A1rias-icon"></a><div id="Arquivo de diárias" class="&#xA;                      step-icon&#xA;                      step-icon-CsvInput" style="&#xA;                      left:208px;&#xA;                      top:160px;&#xA;                  ">
+               <div class="step-hops"><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-distribute-data " href="#Filter rows"></a></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Arquivo de di%C3%A1rias-text" style="&#xA;                      top:192px;&#xA;                      left:184px;                    &#xA;                  ">Arquivo de diárias</a><a name="Univariate Statistics-icon"></a><div id="Univariate Statistics" class="&#xA;                      step-icon&#xA;                      step-icon-UnivariateStats" style="&#xA;                      left:400px;&#xA;                      top:240px;&#xA;                  ">
+               <div class="step-hops"><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-distribute-data " href="#Text file output"></a></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Univariate Statistics-text" style="&#xA;                      top:272px;&#xA;                      left:372px;                    &#xA;                  ">Univariate Statistics</a><a name="Text file output-icon"></a><div id="Text file output" class="&#xA;                      step-icon&#xA;                      step-icon-TextFileOutput" style="&#xA;                      left:544px;&#xA;                      top:240px;&#xA;                  ">
+               <div class="step-hops"></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Text file output-text" style="&#xA;                      top:272px;&#xA;                      left:522.6666666666666px;                    &#xA;                  ">Text file output</a><a name="Filter rows-icon"></a><div id="Filter rows" class="&#xA;                      step-icon&#xA;                      step-icon-FilterRows" style="&#xA;                      left:320px;&#xA;                      top:160px;&#xA;                  ">
+               <div class="step-hops"><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-true " href="#Univariate Statistics"></a><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-false " href="#Dummy (do nothing)"></a></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Filter rows-text" style="&#xA;                      top:192px;&#xA;                      left:305.3333333333333px;                    &#xA;                  ">Filter rows</a><a name="Dummy (do nothing)-icon"></a><div id="Dummy (do nothing)" class="&#xA;                      step-icon&#xA;                      step-icon-Dummy" style="&#xA;                      left:416px;&#xA;                      top:80px;&#xA;                  ">
+               <div class="step-hops"></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Dummy (do nothing)-text" style="&#xA;                      top:112px;&#xA;                      left:392px;                    &#xA;                  ">Dummy (do nothing)</a>
+            
+         </div>
+      </div>
+      <h2><a name="variables">Variables</a></h2>
+      <p>This transformation does not read any variables.</p>
+      <h2><a name="connections">Database Connections</a></h2>
+      <p>This transformation does not define any database connections.</p>
+      <h2><a name="Steps">Steps</a></h2>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-CsvInput"></div>
+      <h3 class="step-heading"><a name="Arquivo de di%C3%A1rias-text" href="#Arquivo de di%C3%A1rias-icon">Arquivo de diárias</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>To</td>
+               <td><a href="#Filter rows-text">Filter rows</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4>Fields</h4>
+      <table>
+         <thead>
+            <tr>
+               <th>Position</th>
+               <th>name</th>
+               <th>type</th>
+               <th>format</th>
+               <th>currency</th>
+               <th>decimal</th>
+               <th>group</th>
+               <th>length</th>
+               <th>precision</th>
+               <th>trim_type</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>Código Órgão Superior</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>Nome Órgão Superior</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>24</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>3</th>
+               <td>Código Órgão Subordinado</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>4</th>
+               <td>Nome Órgão Subordinado</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>24</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>5</th>
+               <td>Código Unidade Gestora</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>6</th>
+               <td>Nome Unidade Gestora</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>30</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>7</th>
+               <td>Código Função</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>8</th>
+               <td>Nome Função</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>13</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>9</th>
+               <td>Código Subfunção</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>10</th>
+               <td>Nome Subunção</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>19</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>11</th>
+               <td>Código Programa</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>12</th>
+               <td>Nome Programa</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>59</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>13</th>
+               <td>Código Ação</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>14</th>
+               <td>Nome Ação</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>71</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>15</th>
+               <td>Linguagem Cidadã</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>24</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>16</th>
+               <td>CPF Favorecido</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>14</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>17</th>
+               <td>Nome Favorecido</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>35</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>18</th>
+               <td>Documento Pagamento</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>12</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>19</th>
+               <td>Gestão Pagamento</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>20</th>
+               <td>Data Pagamento</td>
+               <td>Date</td>
+               <td>dd/MM/yyyy</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>-1</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>21</th>
+               <td>Valor Pagamento</td>
+               <td>Number</td>
+               <td>#.#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>7</td>
+               <td>2</td>
+               <td>none</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-UnivariateStats"></div>
+      <h3 class="step-heading"><a name="Univariate Statistics-text" href="#Univariate Statistics-icon">Univariate Statistics</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>From</td>
+               <td><a href="#Filter rows-text">Filter rows</a></td>
+               <td>Y</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>To</td>
+               <td><a href="#Text file output-text">Text file output</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-TextFileOutput"></div>
+      <h3 class="step-heading"><a name="Text file output-text" href="#Text file output-icon">Text file output</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>From</td>
+               <td><a href="#Univariate Statistics-text">Univariate Statistics</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4>Fields</h4>
+      <table>
+         <thead>
+            <tr>
+               <th>Position</th>
+               <th>name</th>
+               <th>type</th>
+               <th>format</th>
+               <th>currency</th>
+               <th>decimal</th>
+               <th>group</th>
+               <th>nullif</th>
+               <th>trim_type</th>
+               <th>length</th>
+               <th>precision</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>Valor Pagamento(N)</td>
+               <td>Number</td>
+               <td>#.#;-#.#</td>
+               <td></td>
+               <td>.</td>
+               <td></td>
+               <td></td>
+               <td>none</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>Valor Pagamento(mean)</td>
+               <td>Number</td>
+               <td>#.#;-#.#</td>
+               <td></td>
+               <td>.</td>
+               <td></td>
+               <td></td>
+               <td>none</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+            <tr>
+               <th>3</th>
+               <td>Valor Pagamento(stdDev)</td>
+               <td>Number</td>
+               <td>#.#;-#.#</td>
+               <td></td>
+               <td>.</td>
+               <td></td>
+               <td></td>
+               <td>none</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+            <tr>
+               <th>4</th>
+               <td>Valor Pagamento(min)</td>
+               <td>Number</td>
+               <td>#.#;-#.#</td>
+               <td></td>
+               <td>.</td>
+               <td></td>
+               <td></td>
+               <td>none</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+            <tr>
+               <th>5</th>
+               <td>Valor Pagamento(max)</td>
+               <td>Number</td>
+               <td>#.#;-#.#</td>
+               <td></td>
+               <td>.</td>
+               <td></td>
+               <td></td>
+               <td>none</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+            <tr>
+               <th>6</th>
+               <td>Valor Pagamento(median)</td>
+               <td>Number</td>
+               <td>#.#;-#.#</td>
+               <td></td>
+               <td>.</td>
+               <td></td>
+               <td></td>
+               <td>none</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-FilterRows"></div>
+      <h3 class="step-heading"><a name="Filter rows-text" href="#Filter rows-icon">Filter rows</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>From</td>
+               <td><a href="#Arquivo de di%C3%A1rias-text">Arquivo de diárias</a></td>
+               <td>Y</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>To</td>
+               <td><a href="#Univariate Statistics-text">Univariate Statistics</a></td>
+               <td>Y</td>
+            </tr>
+            <tr>
+               <th>3</th>
+               <td>To</td>
+               <td><a href="#Dummy (do nothing)-text">Dummy (do nothing)</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-Dummy"></div>
+      <h3 class="step-heading"><a name="Dummy (do nothing)-text" href="#Dummy (do nothing)-icon">Dummy (do nothing)</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>From</td>
+               <td><a href="#Filter rows-text">Filter rows</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table><script type="text/javascript" src="../js/wz_jsgraphics.js"></script><script type="text/javascript" src="../js/kettle.js"></script><script type="text/javascript" src="../js/shCore.js"></script><script type="text/javascript" src="../js/shBrushBash.js"></script><script type="text/javascript" src="../js/shBrushJava.js"></script><script type="text/javascript" src="../js/shBrushJScript.js"></script><script type="text/javascript" src="../js/shBrushSql.js"></script><script type="text/javascript" src="../js/shBrushMdx.js"></script><script type="text/javascript" src="../js/shBrushXml.js"></script><script type="text/javascript">
+            SyntaxHighlighter.all();drawHops();
+        </script></body>
+</html>

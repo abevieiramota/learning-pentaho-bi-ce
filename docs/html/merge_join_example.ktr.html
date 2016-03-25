@@ -1,0 +1,487 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=8">
+      <meta name="Generator" content="kettle-cookbook - see http://code.google.com/p/kettle-cookbook/">
+      <!--
+            Debugging info - please ignore
+            param_filename: "C:/Users/abevieira/Documents/GitHub/learning-pentaho-bi-ce/kettle/merge_join_example.ktr"
+            normalized_filename: "C:/Users/abevieira/Documents/GitHub/learning-pentaho-bi-ce/kettle/merge_join_example.ktr"
+            file: 1
+            document: 1
+            document-element: transformation
+            name: 
+            relative-path: ""
+            documentation-root: ".."
+        -->
+      <title>Kettle Documentation: transformation ""</title>
+      <link rel="shortcut icon" type="image/x-icon" href="../images/spoon.">
+      <link rel="stylesheet" type="text/css" href="../css/default.css">
+      <link rel="stylesheet" type="text/css" href="../css/kettle.css">
+      <link rel="stylesheet" type="text/css" href="../css/transformation.css">
+      <link rel="stylesheet" type="text/css" href="../css/shCoreDefault.css">
+   </head>
+   <body class="kettle-file">
+      <div class="quicklinks"><a href="#diagram">Diagram</a>
+         |   <a href="#Steps">Steps</a>
+         |   <a href="#parameters">Parameters</a>
+         |   <a href="#variables">Variables</a>
+         |   <a href="#connections">Database Connections</a></div>
+      <h1>merge_join_example</h1>
+      <table>
+         <thead>
+            <tr>
+               <th>What?</th>
+               <th>Who?</th>
+               <th>When?</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>Created</th>
+               <td>-</td>
+               <td>2016/03/19 20:35:05.281</td>
+            </tr>
+            <tr>
+               <th>Modified</th>
+               <td>-</td>
+               <td>2016/03/19 20:50:46.072</td>
+            </tr>
+         </tbody>
+         <tfoot>
+            <tr>
+               <th>Version</th>
+               <td></td>
+            </tr>
+            <tr>
+               <th>Status</th>
+               <td></td>
+            </tr>
+         </tfoot>
+      </table>
+      <p>
+         This transformation does not have a description.
+         
+      </p>
+      <h2><a name="parameters">Parameters</a></h2>
+      <p>
+         This transformation does not define any parameters.
+         
+      </p>
+      <h2>High Level Data Flow Diagram</h2>
+      <table>
+         <thead>
+            <tr>
+               <th>Input (2)</th>
+               <th>Transform</th>
+               <th>Output (1)</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>
+                  <div><a href="#Pessoas-text">Pessoas</a></div>
+                  <div><a href="#Remunera%C3%A7%C3%A3o-text">Remuneração</a></div>
+               </td>
+               <td></td>
+               <td>
+                  <div><a href="#Text file output-text">Text file output</a></div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      <h2><a name="diagram">Diagram</a></h2>
+      <div class="diagram" id="canvas" style="&#xA;          width: 448px;&#xA;          height: 240px;&#xA;      ">
+         <div class="diagram" id="thediagram" style="&#xA;              width: 448px;&#xA;              height: 240px;&#xA;          "><a name="Pessoas-icon"></a><div id="Pessoas" class="&#xA;                      step-icon&#xA;                      step-icon-CsvInput" style="&#xA;                      left:176px;&#xA;                      top:160px;&#xA;                  ">
+               <div class="step-hops"><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-distribute-data " href="#Pessoas sorted"></a></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Pessoas-text" style="&#xA;                      top:192px;&#xA;                      left:166.66666666666666px;                    &#xA;                  ">Pessoas</a><a name="Remunera%C3%A7%C3%A3o-icon"></a><div id="Remuneração" class="&#xA;                      step-icon&#xA;                      step-icon-CsvInput" style="&#xA;                      left:176px;&#xA;                      top:272px;&#xA;                  ">
+               <div class="step-hops"><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-distribute-data " href="#Remunera%C3%A7%C3%A3o sorted"></a></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Remunera%C3%A7%C3%A3o-text" style="&#xA;                      top:304px;&#xA;                      left:161.33333333333334px;                    &#xA;                  ">Remuneração</a><a name="Pessoas sorted-icon"></a><div id="Pessoas sorted" class="&#xA;                      step-icon&#xA;                      step-icon-SortRows" style="&#xA;                      left:272px;&#xA;                      top:160px;&#xA;                  ">
+               <div class="step-hops"><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-distribute-data " href="#Merge Join"></a></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Pessoas sorted-text" style="&#xA;                      top:192px;&#xA;                      left:253.33333333333334px;                    &#xA;                  ">Pessoas sorted</a><a name="Remunera%C3%A7%C3%A3o sorted-icon"></a><div id="Remuneração sorted" class="&#xA;                      step-icon&#xA;                      step-icon-SortRows" style="&#xA;                      left:272px;&#xA;                      top:272px;&#xA;                  ">
+               <div class="step-hops"><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-distribute-data " href="#Merge Join"></a></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Remunera%C3%A7%C3%A3o sorted-text" style="&#xA;                      top:304px;&#xA;                      left:248px;                    &#xA;                  ">Remuneração sorted</a><a name="Merge Join-icon"></a><div id="Merge Join" class="&#xA;                      step-icon&#xA;                      step-icon-MergeJoin" style="&#xA;                      left:400px;&#xA;                      top:224px;&#xA;                  ">
+               <div class="step-hops"><a class="&#xA;                                  step-hop&#xA;                                  &#xA;                                      step-hop-enabled&#xA;                                      step-hop-distribute-data " href="#Text file output"></a></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Merge Join-text" style="&#xA;                      top:256px;&#xA;                      left:386.6666666666667px;                    &#xA;                  ">Merge Join</a><a name="Text file output-icon"></a><div id="Text file output" class="&#xA;                      step-icon&#xA;                      step-icon-TextFileOutput" style="&#xA;                      left:496px;&#xA;                      top:224px;&#xA;                  ">
+               <div class="step-hops"></div>
+            </div><a class="&#xA;                      step-label&#xA;                      " href="#Text file output-text" style="&#xA;                      top:256px;&#xA;                      left:474.6666666666667px;                    &#xA;                  ">Text file output</a>
+            
+         </div>
+      </div>
+      <h2><a name="variables">Variables</a></h2>
+      <p>This transformation does not read any variables.</p>
+      <h2><a name="connections">Database Connections</a></h2>
+      <p>This transformation does not define any database connections.</p>
+      <h2><a name="Steps">Steps</a></h2>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-CsvInput"></div>
+      <h3 class="step-heading"><a name="Pessoas-text" href="#Pessoas-icon">Pessoas</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>To</td>
+               <td><a href="#Pessoas sorted-text">Pessoas sorted</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4>Fields</h4>
+      <table>
+         <thead>
+            <tr>
+               <th>Position</th>
+               <th>name</th>
+               <th>type</th>
+               <th>format</th>
+               <th>currency</th>
+               <th>decimal</th>
+               <th>group</th>
+               <th>length</th>
+               <th>precision</th>
+               <th>trim_type</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>pessoa_id</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>nome</td>
+               <td>String</td>
+               <td></td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>27</td>
+               <td>-1</td>
+               <td>none</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-CsvInput"></div>
+      <h3 class="step-heading"><a name="Remunera%C3%A7%C3%A3o-text" href="#Remunera%C3%A7%C3%A3o-icon">Remuneração</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>To</td>
+               <td><a href="#Remunera%C3%A7%C3%A3o sorted-text">Remuneração sorted</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4>Fields</h4>
+      <table>
+         <thead>
+            <tr>
+               <th>Position</th>
+               <th>name</th>
+               <th>type</th>
+               <th>format</th>
+               <th>currency</th>
+               <th>decimal</th>
+               <th>group</th>
+               <th>length</th>
+               <th>precision</th>
+               <th>trim_type</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>pessoa_id</td>
+               <td>Integer</td>
+               <td>#</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>valor</td>
+               <td>Integer</td>
+               <td> #</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td>15</td>
+               <td>0</td>
+               <td>none</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-SortRows"></div>
+      <h3 class="step-heading"><a name="Pessoas sorted-text" href="#Pessoas sorted-icon">Pessoas sorted</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>From</td>
+               <td><a href="#Pessoas-text">Pessoas</a></td>
+               <td>Y</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>To</td>
+               <td><a href="#Merge Join-text">Merge Join</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4>Fields</h4>
+      <table>
+         <thead>
+            <tr>
+               <th>Position</th>
+               <th>name</th>
+               <th>ascending</th>
+               <th>case_sensitive</th>
+               <th>presorted</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>pessoa_id</td>
+               <td>Y</td>
+               <td>N</td>
+               <td>N</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-SortRows"></div>
+      <h3 class="step-heading"><a name="Remunera%C3%A7%C3%A3o sorted-text" href="#Remunera%C3%A7%C3%A3o sorted-icon">Remuneração sorted</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>From</td>
+               <td><a href="#Remunera%C3%A7%C3%A3o-text">Remuneração</a></td>
+               <td>Y</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>To</td>
+               <td><a href="#Merge Join-text">Merge Join</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4>Fields</h4>
+      <table>
+         <thead>
+            <tr>
+               <th>Position</th>
+               <th>name</th>
+               <th>ascending</th>
+               <th>case_sensitive</th>
+               <th>presorted</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>pessoa_id</td>
+               <td>Y</td>
+               <td>N</td>
+               <td>N</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-MergeJoin"></div>
+      <h3 class="step-heading"><a name="Merge Join-text" href="#Merge Join-icon">Merge Join</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>From</td>
+               <td><a href="#Pessoas sorted-text">Pessoas sorted</a></td>
+               <td>Y</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>From</td>
+               <td><a href="#Remunera%C3%A7%C3%A3o sorted-text">Remuneração sorted</a></td>
+               <td>Y</td>
+            </tr>
+            <tr>
+               <th>3</th>
+               <td>To</td>
+               <td><a href="#Text file output-text">Text file output</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <hr>
+      <div class="&#xA;            step-icon&#xA;            step-icon-TextFileOutput"></div>
+      <h3 class="step-heading"><a name="Text file output-text" href="#Text file output-icon">Text file output</a></h3>
+      <p>
+         This step does not have a description.
+         
+      </p>
+      <h4>Hops</h4>
+      <table>
+         <thead>
+            <tr>
+               <th></th>
+               <th>Type</th>
+               <th>Step</th>
+               <th>Enabled</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>From</td>
+               <td><a href="#Merge Join-text">Merge Join</a></td>
+               <td>Y</td>
+            </tr>
+         </tbody>
+      </table>
+      <h4>Fields</h4>
+      <table>
+         <thead>
+            <tr>
+               <th>Position</th>
+               <th>name</th>
+               <th>type</th>
+               <th>format</th>
+               <th>currency</th>
+               <th>decimal</th>
+               <th>group</th>
+               <th>nullif</th>
+               <th>trim_type</th>
+               <th>length</th>
+               <th>precision</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th>1</th>
+               <td>pessoa_id</td>
+               <td>Integer</td>
+               <td>0</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td></td>
+               <td>both</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+            <tr>
+               <th>2</th>
+               <td>nome</td>
+               <td>String</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td>both</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+            <tr>
+               <th>3</th>
+               <td>valor</td>
+               <td>Integer</td>
+               <td>0</td>
+               <td>R$</td>
+               <td>,</td>
+               <td>.</td>
+               <td></td>
+               <td>both</td>
+               <td>-1</td>
+               <td>-1</td>
+            </tr>
+         </tbody>
+      </table><script type="text/javascript" src="../js/wz_jsgraphics.js"></script><script type="text/javascript" src="../js/kettle.js"></script><script type="text/javascript" src="../js/shCore.js"></script><script type="text/javascript" src="../js/shBrushBash.js"></script><script type="text/javascript" src="../js/shBrushJava.js"></script><script type="text/javascript" src="../js/shBrushJScript.js"></script><script type="text/javascript" src="../js/shBrushSql.js"></script><script type="text/javascript" src="../js/shBrushMdx.js"></script><script type="text/javascript" src="../js/shBrushXml.js"></script><script type="text/javascript">
+            SyntaxHighlighter.all();drawHops();
+        </script></body>
+</html>
