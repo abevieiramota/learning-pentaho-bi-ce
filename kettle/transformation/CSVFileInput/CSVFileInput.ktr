@@ -88,40 +88,414 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x5c;teste.txt</filename>
+    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x5c;out_20160131_Remuneracao.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure>&#x22;</enclosure>
+    <separator>	</separator>
+    <enclosure/>
     <header>Y</header>
     <buffer_size>50000</buffer_size>
     <lazy_conversion>Y</lazy_conversion>
     <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
+    <parallel>Y</parallel>
     <newline_possible>N</newline_possible>
     <encoding/>
     <fields>
       <field>
-        <name>nome</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>8</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>idade</name>
+        <name>ANO</name>
         <type>Integer</type>
-        <format> &#x23;</format>
+        <format>&#x23;</format>
         <currency>R&#x24;</currency>
         <decimal>,</decimal>
         <group>.</group>
         <length>15</length>
         <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>MES</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ID_SERVIDOR_PORTAL</name>
+        <type>Integer</type>
+        <format>&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>15</length>
+        <precision>0</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>CPF</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>14</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>NOME</name>
+        <type>String</type>
+        <format/>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>46</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>REMUNERA&#xc7;&#xc3;O B&#xc1;SICA BRUTA &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>REMUNERA&#xc7;&#xc3;O B&#xc1;SICA BRUTA &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ABATE-TETO &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ABATE-TETO &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>GRATIFICA&#xc7;&#xc3;O NATALINA &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>GRATIFICA&#xc7;&#xc3;O NATALINA &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ABATE-TETO DA GRATIFICA&#xc7;&#xc3;O NATALINA &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>ABATE-TETO DA GRATIFICA&#xc7;&#xc3;O NATALINA &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>F&#xc9;RIAS &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>F&#xc9;RIAS &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OUTRAS REMUNERA&#xc7;&#xd5;ES EVENTUAIS &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>OUTRAS REMUNERA&#xc7;&#xd5;ES EVENTUAIS &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IRRF &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>IRRF &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PSS&#x2f;RPGS &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PSS&#x2f;RPGS &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PENS&#xc3;O MILITAR &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>PENS&#xc3;O MILITAR &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>FUNDO DE SA&#xda;DE &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>FUNDO DE SA&#xda;DE &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DEMAIS DEDU&#xc7;&#xd5;ES &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>DEMAIS DEDU&#xc7;&#xd5;ES &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>REMUNERA&#xc7;&#xc3;O AP&#xd3;S DEDU&#xc7;&#xd5;ES OBRIGAT&#xd3;RIAS &#x28;R&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>8</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>REMUNERA&#xc7;&#xc3;O AP&#xd3;S DEDU&#xc7;&#xd5;ES OBRIGAT&#xd3;RIAS &#x28;U&#x24;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - CIVIL &#x28;R&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>7</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - CIVIL &#x28;U&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - MILITAR &#x28;R&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>VERBAS INDENIZAT&#xd3;RIAS REGISTRADAS EM SISTEMAS DE PESSOAL - MILITAR &#x28;U&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>TOTAL DE VERBAS INDENIZAT&#xd3;RIAS &#x28;R&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>7</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>TOTAL DE VERBAS INDENIZAT&#xd3;RIAS &#x28;U&#x24;&#x29;&#x28;&#x2a;&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>TOTAL DE HONOR&#xc1;RIOS &#x28;JETONS&#x29;</name>
+        <type>Number</type>
+        <format>&#x23;.&#x23;</format>
+        <currency>R&#x24;</currency>
+        <decimal>,</decimal>
+        <group>.</group>
+        <length>4</length>
+        <precision>2</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
