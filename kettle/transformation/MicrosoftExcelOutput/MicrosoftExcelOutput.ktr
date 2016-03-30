@@ -140,7 +140,7 @@
            </partitioning>
     <header>Y</header>
     <footer>N</footer>
-    <encoding>UTF-8</encoding>
+    <encoding>ISO-8859-1</encoding>
     <append>N</append>
     <add_to_result_filenames>N</add_to_result_filenames>
     <file>
@@ -154,7 +154,7 @@
       <SpecifyFormat>N</SpecifyFormat>
       <date_time_format/>
       <sheetname>Shit</sheetname>
-      <autosizecolums>Y</autosizecolums>
+      <autosizecolums>N</autosizecolums>
       <nullisblank>N</nullisblank>
       <protect_sheet>N</protect_sheet>
       <password>Encrypted </password>
