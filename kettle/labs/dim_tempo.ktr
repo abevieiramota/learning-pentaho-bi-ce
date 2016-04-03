@@ -69,7 +69,7 @@
   <created_date>2016&#x2f;04&#x2f;02 22&#x3a;36&#x3a;25.236</created_date>
   <modified_user>-</modified_user>
   <modified_date>2016&#x2f;04&#x2f;02 22&#x3a;36&#x3a;25.236</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -116,8 +116,8 @@
   <hop> <from>Append streams</from><to>Table output</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Gera 10000 datas AAAAMMDD</name>
-    <type>RowGenerator</type>
+    <name>Append streams</name>
+    <type>Append</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -126,58 +126,12 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>
-      <field>
-        <name>START_DAY</name>
-        <type>Date</type>
-        <format>yyyy&#x2f;MM&#x2f;dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>2005&#x2f;01&#x2f;01</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>10000</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
+<head_name>Cria SK 0</head_name>
+<tail_name>Cria SK</tail_name>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>96</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Gera incremento desde o primeiro dia</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>days_since</valuename>
-      <use_database>N</use_database>
-      <connection>conn_h2</connection>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>0</start_at>
-      <increment_by>1</increment_by>
-      <max_value>100000</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>296</xloc>
-      <yloc>176</yloc>
+      <xloc>656</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -335,8 +289,395 @@
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>496</xloc>
-      <yloc>176</yloc>
+      <xloc>96</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Cria Data String</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>data_string</field_name>
+<calc_type>COPY_FIELD</calc_type>
+<field_a>Date</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask>yyyyMMdd</conversion_mask>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>560</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Cria SK</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>sk_tempo</valuename>
+      <use_database>N</use_database>
+      <connection>conn_h2</connection>
+      <schema/>
+      <seqname>SEQ_</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>1</start_at>
+      <increment_by>1</increment_by>
+      <max_value>999999999</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>656</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Cria SK 0</name>
+    <type>DataGrid</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>START_DAY</name>
+        <type>Date</type>
+        <format>yyyy-MM-dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Days_since</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Date</name>
+        <type>Date</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Year</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>Month</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>DayOfYear</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>DayOfMonth</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>DayOfWeek</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>WeekOfYear</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>date_tk</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>DayOfWeekDesc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>DayOfWeekShortDesc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>MonthDesc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>MonthShortDesc</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>data_string</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>sk_tempo</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <data>
+      <line> <item>1900-01-01</item><item>0</item><item>1990&#x2f;01&#x2f;01 00&#x3a;00&#x3a;00.000</item><item>1990</item><item>1</item><item>1</item><item>1</item><item>0</item><item>0</item><item>0</item><item>N&#x2f;I</item><item>N&#x2f;I</item><item>N&#x2f;I</item><item>N&#x2f;I</item><item>19900101</item><item>0</item> </line>
+    </data>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>432</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>DayOfWeekDesc</name>
+    <type>StreamLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <from>DayOfWeekDesc Norm</from>
+    <input_sorted>N</input_sorted>
+    <preserve_memory>Y</preserve_memory>
+    <sorted_list>N</sorted_list>
+    <integer_pair>N</integer_pair>
+    <lookup>
+      <key>
+        <name>DayOfWeek</name>
+        <field>DayNr</field>
+      </key>
+      <value>
+        <name>DayDesc</name>
+        <rename>DayOfWeekDesc</rename>
+        <default/>
+        <type>String</type>
+      </value>
+      <value>
+        <name>DayDescShort</name>
+        <rename>DayOfWeekShortDesc</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>272</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>DayOfWeekDesc Norm</name>
+    <type>Normaliser</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+   <typefield>typefield</typefield>
+    <fields>      <field>        <name>DayNr1</name>
+        <value>1</value>
+        <norm>DayNr</norm>
+        </field>      <field>        <name>DayDesc1</name>
+        <value>1</value>
+        <norm>DayDesc</norm>
+        </field>      <field>        <name>DayDescShort1</name>
+        <value>1</value>
+        <norm>DayDescShort</norm>
+        </field>      <field>        <name>DayNr2</name>
+        <value>2</value>
+        <norm>DayNr</norm>
+        </field>      <field>        <name>DayDesc2</name>
+        <value>2</value>
+        <norm>DayDesc</norm>
+        </field>      <field>        <name>DayDescShort2</name>
+        <value>2</value>
+        <norm>DayDescShort</norm>
+        </field>      <field>        <name>DayNr3</name>
+        <value>3</value>
+        <norm>DayNr</norm>
+        </field>      <field>        <name>DayDesc3</name>
+        <value>3</value>
+        <norm>DayDesc</norm>
+        </field>      <field>        <name>DayDescShort3</name>
+        <value>3</value>
+        <norm>DayDescShort</norm>
+        </field>      <field>        <name>DayNr4</name>
+        <value>4</value>
+        <norm>DayNr</norm>
+        </field>      <field>        <name>DayDesc4</name>
+        <value>4</value>
+        <norm>DayDesc</norm>
+        </field>      <field>        <name>DayDescShort4</name>
+        <value>4</value>
+        <norm>DayDescShort</norm>
+        </field>      <field>        <name>DayNr5</name>
+        <value>5</value>
+        <norm>DayNr</norm>
+        </field>      <field>        <name>DayDesc5</name>
+        <value>5</value>
+        <norm>DayDesc</norm>
+        </field>      <field>        <name>DayDescShort5</name>
+        <value>5</value>
+        <norm>DayDescShort</norm>
+        </field>      <field>        <name>DayNr6</name>
+        <value>6</value>
+        <norm>DayNr</norm>
+        </field>      <field>        <name>DayDesc6</name>
+        <value>6</value>
+        <norm>DayDesc</norm>
+        </field>      <field>        <name>DayDescShort6</name>
+        <value>6</value>
+        <norm>DayDescShort</norm>
+        </field>      <field>        <name>DayNr7</name>
+        <value>7</value>
+        <norm>DayNr</norm>
+        </field>      <field>        <name>DayDesc7</name>
+        <value>7</value>
+        <norm>DayDesc</norm>
+        </field>      <field>        <name>DayDescShort7</name>
+        <value>7</value>
+        <norm>DayDescShort</norm>
+        </field>      </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>272</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -613,15 +954,15 @@
     <last_time_field>FiveSecondsAgo</last_time_field>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>336</xloc>
-      <yloc>320</yloc>
+      <xloc>272</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>DayOfWeekDesc Norm</name>
-    <type>Normaliser</type>
+    <name>Gera 10000 datas AAAAMMDD</name>
+    <type>RowGenerator</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -630,80 +971,64 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-   <typefield>typefield</typefield>
-    <fields>      <field>        <name>DayNr1</name>
-        <value>1</value>
-        <norm>DayNr</norm>
-        </field>      <field>        <name>DayDesc1</name>
-        <value>1</value>
-        <norm>DayDesc</norm>
-        </field>      <field>        <name>DayDescShort1</name>
-        <value>1</value>
-        <norm>DayDescShort</norm>
-        </field>      <field>        <name>DayNr2</name>
-        <value>2</value>
-        <norm>DayNr</norm>
-        </field>      <field>        <name>DayDesc2</name>
-        <value>2</value>
-        <norm>DayDesc</norm>
-        </field>      <field>        <name>DayDescShort2</name>
-        <value>2</value>
-        <norm>DayDescShort</norm>
-        </field>      <field>        <name>DayNr3</name>
-        <value>3</value>
-        <norm>DayNr</norm>
-        </field>      <field>        <name>DayDesc3</name>
-        <value>3</value>
-        <norm>DayDesc</norm>
-        </field>      <field>        <name>DayDescShort3</name>
-        <value>3</value>
-        <norm>DayDescShort</norm>
-        </field>      <field>        <name>DayNr4</name>
-        <value>4</value>
-        <norm>DayNr</norm>
-        </field>      <field>        <name>DayDesc4</name>
-        <value>4</value>
-        <norm>DayDesc</norm>
-        </field>      <field>        <name>DayDescShort4</name>
-        <value>4</value>
-        <norm>DayDescShort</norm>
-        </field>      <field>        <name>DayNr5</name>
-        <value>5</value>
-        <norm>DayNr</norm>
-        </field>      <field>        <name>DayDesc5</name>
-        <value>5</value>
-        <norm>DayDesc</norm>
-        </field>      <field>        <name>DayDescShort5</name>
-        <value>5</value>
-        <norm>DayDescShort</norm>
-        </field>      <field>        <name>DayNr6</name>
-        <value>6</value>
-        <norm>DayNr</norm>
-        </field>      <field>        <name>DayDesc6</name>
-        <value>6</value>
-        <norm>DayDesc</norm>
-        </field>      <field>        <name>DayDescShort6</name>
-        <value>6</value>
-        <norm>DayDescShort</norm>
-        </field>      <field>        <name>DayNr7</name>
-        <value>7</value>
-        <norm>DayNr</norm>
-        </field>      <field>        <name>DayDesc7</name>
-        <value>7</value>
-        <norm>DayDesc</norm>
-        </field>      <field>        <name>DayDescShort7</name>
-        <value>7</value>
-        <norm>DayDescShort</norm>
-        </field>      </fields>     <cluster_schema/>
+    <fields>
+      <field>
+        <name>START_DAY</name>
+        <type>Date</type>
+        <format>yyyy&#x2f;MM&#x2f;dd</format>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>2005&#x2f;01&#x2f;01</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>10000</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
+     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>496</xloc>
-      <yloc>320</yloc>
+      <xloc>96</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>DayOfWeekDesc</name>
+    <name>Gera incremento desde o primeiro dia</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <valuename>days_since</valuename>
+      <use_database>N</use_database>
+      <connection>conn_h2</connection>
+      <schema/>
+      <seqname>SEQ_</seqname>
+      <use_counter>Y</use_counter>
+      <counter_name/>
+      <start_at>0</start_at>
+      <increment_by>1</increment_by>
+      <max_value>100000</max_value>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>96</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>MonthDesc</name>
     <type>StreamLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -713,33 +1038,33 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <from>DayOfWeekDesc Norm</from>
+    <from>MonthDesc Norm</from>
     <input_sorted>N</input_sorted>
     <preserve_memory>Y</preserve_memory>
     <sorted_list>N</sorted_list>
     <integer_pair>N</integer_pair>
     <lookup>
       <key>
-        <name>DayOfWeek</name>
-        <field>DayNr</field>
+        <name>Month</name>
+        <field>MonthNr</field>
       </key>
       <value>
-        <name>DayDesc</name>
-        <rename>DayOfWeekDesc</rename>
+        <name>MonthDesc</name>
+        <rename>MonthDesc</rename>
         <default/>
         <type>String</type>
       </value>
       <value>
-        <name>DayDescShort</name>
-        <rename>DayOfWeekShortDesc</rename>
+        <name>MonthDescShort</name>
+        <rename>MonthShortDesc</rename>
         <default/>
         <type>String</type>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>672</xloc>
-      <yloc>240</yloc>
+      <xloc>432</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1052,8 +1377,8 @@
     <last_time_field>FiveSecondsAgo</last_time_field>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>544</xloc>
-      <yloc>416</yloc>
+      <xloc>432</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1071,406 +1396,81 @@
            </partitioning>
    <typefield>MonthNr</typefield>
     <fields>      <field>        <name>desc1</name>
-        <value>desc1</value>
+        <value>1</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc10</name>
-        <value>desc10</value>
+        <value>10</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc11</name>
-        <value>desc11</value>
+        <value>11</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc12</name>
-        <value>desc12</value>
+        <value>12</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc2</name>
-        <value>desc2</value>
+        <value>2</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc3</name>
-        <value>desc3</value>
+        <value>3</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc4</name>
-        <value>desc4</value>
+        <value>4</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc5</name>
-        <value>desc5</value>
+        <value>5</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc6</name>
-        <value>desc6</value>
+        <value>6</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc7</name>
-        <value>desc7</value>
+        <value>7</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc8</name>
-        <value>desc8</value>
+        <value>8</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>desc9</name>
-        <value>desc9</value>
+        <value>9</value>
         <norm>MonthDesc</norm>
         </field>      <field>        <name>short1</name>
-        <value>short1</value>
+        <value>1</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short10</name>
-        <value>short10</value>
+        <value>10</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short11</name>
-        <value>short11</value>
+        <value>11</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short12</name>
-        <value>short12</value>
+        <value>12</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short2</name>
-        <value>short2</value>
+        <value>2</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short3</name>
-        <value>short3</value>
+        <value>3</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short4</name>
-        <value>short4</value>
+        <value>4</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short5</name>
-        <value>short5</value>
+        <value>5</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short6</name>
-        <value>short6</value>
+        <value>6</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short7</name>
-        <value>short7</value>
+        <value>7</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short8</name>
-        <value>short8</value>
+        <value>8</value>
         <norm>MonthDescShort</norm>
         </field>      <field>        <name>short9</name>
-        <value>short9</value>
+        <value>9</value>
         <norm>MonthDescShort</norm>
         </field>      </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>672</xloc>
-      <yloc>416</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>MonthDesc</name>
-    <type>StreamLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <from>MonthDesc Norm</from>
-    <input_sorted>N</input_sorted>
-    <preserve_memory>Y</preserve_memory>
-    <sorted_list>N</sorted_list>
-    <integer_pair>N</integer_pair>
-    <lookup>
-      <key>
-        <name>Month</name>
-        <field>MonthNr</field>
-      </key>
-      <value>
-        <name>MonthDesc</name>
-        <rename>MonthDesc</rename>
-        <default/>
-        <type>String</type>
-      </value>
-      <value>
-        <name>MonthDescShort</name>
-        <rename>MonthShortDesc</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>864</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Cria Data String</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>data_string</field_name>
-<calc_type>COPY_FIELD</calc_type>
-<field_a>Date</field_a>
-<field_b/>
-<field_c/>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask>yyyyMMdd</conversion_mask>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>976</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Cria SK</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <valuename>sk_tempo</valuename>
-      <use_database>N</use_database>
-      <connection>conn_h2</connection>
-      <schema/>
-      <seqname>SEQ_</seqname>
-      <use_counter>Y</use_counter>
-      <counter_name/>
-      <start_at>1</start_at>
-      <increment_by>1</increment_by>
-      <max_value>999999999</max_value>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1072</xloc>
-      <yloc>320</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Append streams</name>
-    <type>Append</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<head_name>Cria SK 0</head_name>
-<tail_name>Cria SK</tail_name>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1184</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Cria SK 0</name>
-    <type>DataGrid</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>START_DAY</name>
-        <type>Date</type>
-        <format>yyyy-MM-dd</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Days_since</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Date</name>
-        <type>Date</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Year</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>Month</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>DayOfYear</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>DayOfMonth</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>DayOfWeek</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>WeekOfYear</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>date_tk</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>DayOfWeekDesc</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>DayOfWeekShortDesc</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>MonthDesc</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>MonthShortDesc</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>data_string</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>sk_tempo</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <data>
-      <line> <item>1900-01-01</item><item>0</item><item>1990&#x2f;01&#x2f;01 00&#x3a;00&#x3a;00.000</item><item>1990</item><item>1</item><item>1</item><item>1</item><item>0</item><item>0</item><item>0</item><item>N&#x2f;I</item><item>N&#x2f;I</item><item>N&#x2f;I</item><item>N&#x2f;I</item><item>19900101</item><item>0</item> </line>
-    </data>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1072</xloc>
-      <yloc>464</yloc>
+      <xloc>432</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1507,8 +1507,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1280</xloc>
-      <yloc>400</yloc>
+      <xloc>768</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
