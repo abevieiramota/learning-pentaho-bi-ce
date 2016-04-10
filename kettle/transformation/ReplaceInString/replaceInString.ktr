@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>gravando_etl_pac</name>
+    <name>replaceInString</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -67,44 +66,21 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;03&#x2f;30 21&#x3a;12&#x3a;37.114</created_date>
+  <created_date>2016&#x2f;04&#x2f;09 23&#x3a;24&#x3a;19.871</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;03&#x2f;30 21&#x3a;12&#x3a;37.114</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+  <modified_date>2016&#x2f;04&#x2f;09 23&#x3a;24&#x3a;19.871</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>conn_pg</name>
-    <server>localhost</server>
-    <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>oncase</database>
-    <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10bef2bcdb</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
-  <hop> <from>CSV file input</from><to>Table output</to><enabled>Y</enabled> </hop>
+  <hop> <from>Data Grid</from><to>Replace in string</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace in string</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>CSV file input</name>
-    <type>CsvInput</type>
+    <name>Data Grid</name>
+    <type>DataGrid</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -113,230 +89,33 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>C&#x3a;&#x5c;Users&#x5c;abevieira&#x5c;Documents&#x5c;GitHub&#x5c;learning-pentaho-bi-ce&#x5c;kettle&#x5c;labs&#x5c;PAC_2014_10.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>N</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <encoding>ISO-8859-1</encoding>
     <fields>
       <field>
-        <name>idn_empreendimento</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>idn_digs</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>dsc_titulo</name>
+        <name>nome</name>
         <type>String</type>
         <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>812</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>val_2011_2014</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>val_pos_2014</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>investimento_total</name>
-        <type>Number</type>
-        <format>&#x23;.&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>sig_uf</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>80</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>txt_municipios</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>5012</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>txt_executores</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>269</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>dsc_orgao</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>55</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>idn_estagio</name>
-        <type>Integer</type>
-        <format>&#x23;</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>dat_ciclo</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>dat_selecao</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>dat_conclusao_revisada</name>
-        <type>Date</type>
-        <format>dd&#x2f;MM&#x2f;yyyy</format>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>val_lat</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>17</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>val_long</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>17</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>emblematica</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>11</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>observacao</name>
-        <type>String</type>
-        <format/>
-        <currency>R&#x24;</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-        <length>163</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <set_empty_string>N</set_empty_string>
       </field>
     </fields>
+    <data>
+      <line> <item>Abelardo Vieira Mota</item> </line>
+    </data>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>160</xloc>
-      <yloc>176</yloc>
+      <xloc>200</xloc>
+      <yloc>100</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
+    <name>Replace in string</name>
+    <type>ReplaceString</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -345,29 +124,42 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>conn_pg</connection>
-    <schema>pac</schema>
-    <table>informacoes_pac</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
     <fields>
+      <field>
+        <in_stream_name>nome</in_stream_name>
+        <out_stream_name>nome_modificado</out_stream_name>
+        <use_regex>yes</use_regex>
+        <replace_string>&#x5b;A-Z&#x5d;.&#x7b;1&#x7d;</replace_string>
+        <replace_by_string>Z&#xe9;</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>288</xloc>
-      <yloc>176</yloc>
+      <xloc>400</xloc>
+      <yloc>100</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>600</xloc>
+      <yloc>100</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
