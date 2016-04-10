@@ -205,10 +205,10 @@
   </connection>
   <order>
   <hop> <from>Dimension lookup&#x2f;update</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>01&#x2f;01&#x2f;2010</from><to>Dimension lookup&#x2f;update</to><enabled>N</enabled> </hop>
+  <hop> <from>01&#x2f;01&#x2f;2010</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
   <hop> <from>02&#x2f;01&#x2f;2010 2</from><to>Dimension lookup&#x2f;update</to><enabled>N</enabled> </hop>
   <hop> <from>03&#x2f;01&#x2f;2010 3</from><to>Dimension lookup&#x2f;update</to><enabled>N</enabled> </hop>
-  <hop> <from>04&#x2f;01&#x2f;2010 3 2</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
+  <hop> <from>04&#x2f;01&#x2f;2010</from><to>Dimension lookup&#x2f;update</to><enabled>N</enabled> </hop>
   </order>
   <step>
     <name>01&#x2f;01&#x2f;2010</name>
@@ -221,7 +221,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;lojas01012010.csv</filename>
+    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;lojas01012010.csvi</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -321,7 +321,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;lojas02012010.csv</filename>
+    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;lojas02012010.csvi</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -421,7 +421,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;lojas03012010.csv</filename>
+    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;lojas03012010.csvi</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -615,7 +615,7 @@
     </step>
 
   <step>
-    <name>04&#x2f;01&#x2f;2010 3 2</name>
+    <name>04&#x2f;01&#x2f;2010</name>
     <type>CsvInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -625,7 +625,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;lojas04012010.csv</filename>
+    <filename>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;lojas04012010.csvi</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
