@@ -75,20 +75,18 @@
   <notepads>
   </notepads>
   <connection>
-    <name>conn_h2</name>
+    <name>pg_oncase</name>
     <server/>
-    <type>GENERIC</type>
-    <access>Native</access>
-    <database/>
+    <type>POSTGRESQL</type>
+    <access>JNDI</access>
+    <database>pg_oncase</database>
     <port>1521</port>
-    <username>sa</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10bef2bcdb</password>
+    <username/>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>CUSTOM_DRIVER_CLASS</code><attribute>org.h2.Driver</attribute></attribute>
-      <attribute><code>CUSTOM_URL</code><attribute>jdbc&#x3a;h2&#x3a;&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;teste</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
@@ -115,7 +113,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>conn_h2</connection>
+    <connection>pg_oncase</connection>
     <cache>N</cache>
     <cache_load_all>N</cache_load_all>
     <cache_size>0</cache_size>
@@ -126,14 +124,14 @@
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>ID_SALARIO</name>
+        <name>id</name>
         <field>ID_SALARIO</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>VALOR</name>
-        <rename>VALOR</rename>
+        <name>valor</name>
+        <rename>valor</rename>
         <default/>
         <type>BigNumber</type>
       </value>
@@ -176,7 +174,7 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>conn_h2</connection>
+    <connection>pg_oncase</connection>
     <sql>SELECT &#x2a; FROM pessoa</sql>
     <limit>0</limit>
     <lookup/>

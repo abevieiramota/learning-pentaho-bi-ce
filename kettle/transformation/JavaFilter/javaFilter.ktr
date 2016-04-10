@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>DatabaseJoin</name>
+    <name>javaFilter</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -67,45 +66,22 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;03&#x2f;30 22&#x3a;07&#x3a;44.361</created_date>
+  <created_date>2016&#x2f;04&#x2f;10 14&#x3a;41&#x3a;26.997</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;03&#x2f;30 22&#x3a;07&#x3a;44.361</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+  <modified_date>2016&#x2f;04&#x2f;10 14&#x3a;41&#x3a;26.997</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
-  <connection>
-    <name>pg_oncase</name>
-    <server/>
-    <type>POSTGRESQL</type>
-    <access>JNDI</access>
-    <database>pg_oncase</database>
-    <port>1521</port>
-    <username/>
-    <password>Encrypted </password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
   <order>
-  <hop> <from>Table input</from><to>Database join</to><enabled>Y</enabled> </hop>
-  <hop> <from>Database join</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Data Grid</from><to>Java Filter</to><enabled>Y</enabled> </hop>
+  <hop> <from>Java Filter</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Java Filter</from><to>Dummy &#x28;do nothing&#x29; 2</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Database join</name>
-    <type>DBJoin</type>
+    <name>Data Grid</name>
+    <type>DataGrid</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -114,21 +90,60 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>pg_oncase</connection>
-    <rowlimit>0</rowlimit>
-    <sql>select &#x2a; from salario where id_salario &#x3d; &#x3f;</sql>
-    <outer_join>N</outer_join>
-    <replace_vars>N</replace_vars>
-    <parameter>
+    <fields>
       <field>
-        <name>id</name>
-        <type>BigNumber</type>
+        <name>Nome</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
       </field>
-    </parameter>
+      <field>
+        <name>Idade</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <data>
+      <line> <item>Abelardo</item><item>25</item> </line>
+      <line> <item>Juliana</item><item>40</item> </line>
+    </data>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>384</xloc>
-      <yloc>176</yloc>
+      <xloc>200</xloc>
+      <yloc>100</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Java Filter</name>
+    <type>JavaFilter</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Dummy &#x28;do nothing&#x29;</send_true_to>
+<send_false_to>Dummy &#x28;do nothing&#x29; 2</send_false_to>
+<condition>Idade &#x3e; 25</condition>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>400</xloc>
+      <yloc>100</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -146,15 +161,15 @@
            </partitioning>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>744</xloc>
-      <yloc>176</yloc>
+      <xloc>600</xloc>
+      <yloc>100</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Table input</name>
-    <type>TableInput</type>
+    <name>Dummy &#x28;do nothing&#x29; 2</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -163,17 +178,10 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>pg_oncase</connection>
-    <sql>SELECT&#xd;&#xa;  NOME&#xd;&#xa;, IDADE&#xd;&#xa;, ID&#xd;&#xa;FROM PESSOA&#xd;&#xa;</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>240</xloc>
-      <yloc>176</yloc>
+      <xloc>400</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
