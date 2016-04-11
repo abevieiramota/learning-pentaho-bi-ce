@@ -205,8 +205,8 @@
   </connection>
   <order>
   <hop> <from>Dimension lookup&#x2f;update</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>01&#x2f;01&#x2f;2010</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
-  <hop> <from>02&#x2f;01&#x2f;2010 2</from><to>Dimension lookup&#x2f;update</to><enabled>N</enabled> </hop>
+  <hop> <from>01&#x2f;01&#x2f;2010</from><to>Dimension lookup&#x2f;update</to><enabled>N</enabled> </hop>
+  <hop> <from>02&#x2f;01&#x2f;2010 2</from><to>Dimension lookup&#x2f;update</to><enabled>Y</enabled> </hop>
   <hop> <from>03&#x2f;01&#x2f;2010 3</from><to>Dimension lookup&#x2f;update</to><enabled>N</enabled> </hop>
   <hop> <from>04&#x2f;01&#x2f;2010</from><to>Dimension lookup&#x2f;update</to><enabled>N</enabled> </hop>
   </order>
