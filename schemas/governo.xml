@@ -1,4 +1,4 @@
-<Schema name="Governo">
+<Schema name="Governo" description="Schema desenvolvido no curso da Oncase ">
   <Cube name="PAC" visible="true" cache="true" enabled="true">
     <Table name="fato_pac" schema="pac">
     </Table>
