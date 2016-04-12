@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>write_to_log</name>
+    <name>recebendoParametros</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>&#x2f;</directory>
     <parameters>
     </parameters>
@@ -66,22 +67,47 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#x2f;04&#x2f;03 12&#x3a;13&#x3a;08.019</created_date>
+  <created_date>2016&#x2f;04&#x2f;11 19&#x3a;59&#x3a;21.008</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#x2f;04&#x2f;03 12&#x3a;13&#x3a;08.019</modified_date>
-    <key_for_session_key/>
+  <modified_date>2016&#x2f;04&#x2f;11 19&#x3a;59&#x3a;21.008</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>conn_pg</name>
+    <server>localhost</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>oncase</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10bef2bcdb</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <order>
-  <hop> <from>Get Variables</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Write to log</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get System Info</from><to>Table input</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Get Variables</name>
-    <type>GetVariable</type>
+    <name>Get System Info</name>
+    <type>SystemInfo</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
          <partitioning>
@@ -90,22 +116,40 @@
            </partitioning>
     <fields>
       <field>
-        <name>id</name>
-        <variable>&#x24;&#x7b;param_id&#x7d;</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
+        <name>arg1</name>
+        <type>command line argument 1</type>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>200</xloc>
-      <yloc>100</yloc>
+      <xloc>64</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>conn_pg</connection>
+    <sql>SELECT&#xd;&#xa;  nome&#xd;&#xa;, idade&#xd;&#xa;, id&#xd;&#xa;FROM &#x22;public&#x22;.pessoa&#xd;&#xa;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>176</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -125,16 +169,25 @@
       <displayHeader>Y</displayHeader>
       <limitRows>N</limitRows>
       <limitRowsNumber>0</limitRowsNumber>
-      <logmessage>&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#xd;&#xa;&#xd;&#xa;Param_id&#xd;&#xa;&#xd;&#xa;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;&#x23;</logmessage>
+      <logmessage>Teste do capeta&#xd;&#xa;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#x3d;&#xd;&#xa;&#x24;&#x7b;arg1&#x7d;</logmessage>
     <fields>
       <field>
+        <name>nome</name>
+        </field>
+      <field>
+        <name>idade</name>
+        </field>
+      <field>
         <name>id</name>
+        </field>
+      <field>
+        <name>arg1</name>
         </field>
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>400</xloc>
-      <yloc>100</yloc>
+      <xloc>296</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

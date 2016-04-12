@@ -1,57 +1,57 @@
 <Schema name="Governo">
   <Cube name="PAC" visible="true" cache="true" enabled="true">
-    <Table name="FATO_PAC" schema="PUBLIC">
+    <Table name="fato_pac" schema="pac">
     </Table>
-    <Dimension type="StandardDimension" visible="true" foreignKey="SK_ESTAGIO" highCardinality="false" name="Estagio da Obra">
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_estagio" highCardinality="false" name="Estagio da Obra">
       <Hierarchy visible="true" hasAll="true" allMemberName="Tudo">
-        <Table name="DIM_ESTAGIO" schema="PUBLIC">
+        <Table name="dim_estagio" schema="pac">
         </Table>
-        <Level name="Estagio da Obra" visible="true" column="ESTAGIO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-          <Property name="codigo do estagio" column="CHAVE_ESTAGIO" type="Integer">
+        <Level name="Estagio da Obra" visible="true" column="sk_estagio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+          <Property name="codigo do estagio" column="chave_estagio" type="Integer">
           </Property>
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="TimeDimension" visible="true" foreignKey="SK_TEMPO" highCardinality="false" name="Data">
-      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="SK_TEMPO">
-        <Table name="DIM_TEMPO" schema="PUBLIC">
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_tempo" highCardinality="false" name="Data">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Tudo" primaryKey="sk_tempo">
+        <Table name="dim_tempo" schema="pac">
         </Table>
-        <Level name="Ano" visible="true" column="YEAR" nameColumn="YEAR" ordinalColumn="YEAR" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        <Level name="Ano" visible="true" column="year" nameColumn="year" ordinalColumn="year" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
           <Annotations>
             <Annotation name="AnalyzerDateFormat">
               <![CDATA[[yyyy]]]>
             </Annotation>
           </Annotations>
         </Level>
-        <Level name="Mes" visible="true" column="MONTHDESC" ordinalColumn="MONTH" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        <Level name="Mes" visible="true" column="monthdesc" ordinalColumn="month" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
           <Annotations>
             <Annotation name="AnalyzerDateFormat">
               <![CDATA[[yyyy].[MMM]]]>
             </Annotation>
           </Annotations>
-          <Property name="Mes Abrev" column="MONTHSHORTDESC" type="String">
+          <Property name="Mes Abrev" column="monthshortdesc" type="String">
           </Property>
         </Level>
-        <Level name="Dia" visible="true" column="DAYOFMONTH" nameColumn="DAYOFMONTH" ordinalColumn="DAYOFMONTH" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        <Level name="Dia" visible="true" column="dayofmonth" nameColumn="dayofmonth" ordinalColumn="dayofmonth" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
           <Annotations>
             <Annotation name="New Annotation 0">
               <![CDATA[[yyyy-MM-dd]]]>
             </Annotation>
           </Annotations>
-          <Property name="Nome do Dia" column="DAYOFWEEK" type="String">
+          <Property name="Nome do Dia" column="dayofweek" type="String">
           </Property>
-          <Property name="Dia do Ano" column="DAYOFYEAR" type="Integer">
+          <Property name="Dia do Ano" column="dayofyear" type="Integer">
           </Property>
         </Level>
       </Hierarchy>
     </Dimension>
     <Dimension type="StandardDimension" visible="true" highCardinality="false" name="Obra">
       <Hierarchy visible="true" hasAll="true" allMemberName="Tudo">
-        <Level name="Descricao da Obra" visible="true" column="DSC_TITULO" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        <Level name="Descricao da Obra" visible="true" column="dsc_titulo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Measure name="Valor" column="VALOR" datatype="Numeric" formatString="R$ #,##0" aggregator="sum" visible="true">
+    <Measure name="Valor" column="valor" datatype="Numeric" formatString="R$ #,##0" aggregator="sum" visible="true">
     </Measure>
     <CalculatedMember name="Valor em Dolar" formatString="US$ #,##0" formula="[Measures].[Valor]*4" dimension="Measures" visible="true">
     </CalculatedMember>

@@ -79,11 +79,11 @@
     <name>conn_pg</name>
     <server>localhost</server>
     <type>POSTGRESQL</type>
-    <access>Native</access>
-    <database>oncase</database>
+    <access>JNDI</access>
+    <database>pg_oncase</database>
     <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb79ce10bef2bcdb</password>
+    <username/>
+    <password>Encrypted </password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -159,25 +159,25 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>      <field>        <name>DSC_TITULO</name>
+    <fields>      <field>        <name>dsc_titulo</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>VAL_2011_2014</name>
+      </field>      <field>        <name>val_2011_2014</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>SK_ESTAGIO</name>
+      </field>      <field>        <name>sk_estagio</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>DAT_CONCLUSAO_REVISADA</name>
+      </field>      <field>        <name>dat_conclusao_revisada</name>
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
       </field>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>SK_ESTAGIO</name>
-        <rename>SK_ESTAGIO</rename>
+      <meta>        <name>sk_estagio</name>
+        <rename>sk_estagio</rename>
         <type>Integer</type>
         <length>-2</length>
         <precision>0</precision>
@@ -191,8 +191,8 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>DSC_TITULO</name>
-        <rename>DSC_TITULO</rename>
+      </meta>      <meta>        <name>dsc_titulo</name>
+        <rename>dsc_titulo</rename>
         <type>String</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -206,8 +206,8 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>VAL_2011_2014</name>
-        <rename>VAL_2011_2014</rename>
+      </meta>      <meta>        <name>val_2011_2014</name>
+        <rename>val_2011_2014</rename>
         <type>BigNumber</type>
         <length>-2</length>
         <precision>0</precision>
@@ -221,8 +221,8 @@
         <grouping_symbol/>
         <currency_symbol/>
         <storage_type/>
-      </meta>      <meta>        <name>DAT_CONCLUSAO_REVISADA</name>
-        <rename>DAT_CONCLUSAO_REVISADA</rename>
+      </meta>      <meta>        <name>dat_conclusao_revisada</name>
+        <rename>dat_conclusao_revisada</rename>
         <type>Date</type>
         <length>-2</length>
         <precision>-2</precision>
@@ -266,15 +266,15 @@
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>IDN_ESTAGIO</name>
-        <field>CHAVE_ESTAGIO</field>
+        <name>idn_estagio</name>
+        <field>chave_estagio</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>SK_ESTAGIO</name>
-        <rename>SK_ESTAGIO</rename>
-        <default>0</default>
+        <name>sk_estagio</name>
+        <rename>sk_estagio</rename>
+        <default/>
         <type>Integer</type>
       </value>
     </lookup>
@@ -308,15 +308,15 @@
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>DAT_CONCLUSAO_REVISADA</name>
-        <field>DATE</field>
+        <name>dat_conclusao_revisada</name>
+        <field>date</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>SK_TEMPO</name>
-        <rename>SK_TEMPO</rename>
-        <default>0</default>
+        <name>sk_tempo</name>
+        <rename>sk_tempo</rename>
+        <default/>
         <type>Integer</type>
       </value>
     </lookup>
@@ -358,20 +358,20 @@
     <return_field/>
     <fields>
         <field>
-          <column_name>DSC_TITULO</column_name>
-          <stream_name>DSC_TITULO</stream_name>
+          <column_name>dsc_titulo</column_name>
+          <stream_name>dsc_titulo</stream_name>
         </field>
         <field>
-          <column_name>VALOR</column_name>
-          <stream_name>VAL_2011_2014</stream_name>
+          <column_name>valor</column_name>
+          <stream_name>val_2011_2014</stream_name>
         </field>
         <field>
-          <column_name>SK_ESTAGIO</column_name>
-          <stream_name>SK_ESTAGIO</stream_name>
+          <column_name>sk_estagio</column_name>
+          <stream_name>sk_estagio</stream_name>
         </field>
         <field>
-          <column_name>SK_TEMPO</column_name>
-          <stream_name>SK_TEMPO</stream_name>
+          <column_name>sk_tempo</column_name>
+          <stream_name>sk_tempo</stream_name>
         </field>
     </fields>
      <cluster_schema/>
@@ -398,7 +398,7 @@
     <compare>
 <condition>
  <negated>N</negated>
- <leftvalue>IDN_ESTAGIO</leftvalue>
+ <leftvalue>idn_estagio</leftvalue>
  <function>&#x3c;&#x3e;</function>
  <rightvalue/>
  <value><name>constant</name><type>Integer</type><text>5</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
@@ -431,7 +431,7 @@
       </valuetypes>
     <fields>
       <field>
-        <name>VAL_2011_2014</name>
+        <name>val_2011_2014</name>
         <value>0</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
@@ -456,8 +456,8 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>conn_h2</connection>
-    <sql>SELECT&#xd;&#xa;dsc_titulo,&#xd;&#xa;val_2011_2014,&#xd;&#xa;idn_estagio,&#xd;&#xa;dat_conclusao_revisada&#xd;&#xa;FROM informacoes_pac</sql>
+    <connection>conn_pg</connection>
+    <sql>SELECT&#xd;&#xa;  dsc_titulo&#xd;&#xa;, val_2011_2014&#xd;&#xa;, val_pos_2014&#xd;&#xa;, idn_estagio&#xd;&#xa;, dat_conclusao_revisada&#xd;&#xa;FROM pac.informacoes_pac&#xd;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -484,7 +484,7 @@
            </partitioning>
     <fields>
       <field>
-        <in_stream_name>DSC_TITULO</in_stream_name>
+        <in_stream_name>dsc_titulo</in_stream_name>
         <out_stream_name/>
         <trim_type>both</trim_type>
         <lower_upper>none</lower_upper>
