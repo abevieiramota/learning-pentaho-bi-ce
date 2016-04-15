@@ -56,4 +56,20 @@
     <CalculatedMember name="Valor em Dolar" formatString="US$ #,##0" formula="[Measures].[Valor]*4" dimension="Measures" visible="true">
     </CalculatedMember>
   </Cube>
+  <Role name="GaleraDoMal">
+    <SchemaGrant access="all">
+      <CubeGrant cube="PAC" access="all">
+        <DimensionGrant dimension="Measures" access="all">
+        </DimensionGrant>
+        <DimensionGrant dimension="Estagio da Obra" access="all">
+        </DimensionGrant>
+        <DimensionGrant dimension="Data" access="all">
+        </DimensionGrant>
+        <DimensionGrant dimension="Obra" access="all">
+        </DimensionGrant>
+        <HierarchyGrant hierarchy="[Estagio da Obra]" topLevel="[Estagio da Obra].[Estagio da Obra]" bottomLevel="[Estagio da Obra].[Estagio da Obra]" rollupPolicy="partial" access="all">
+        </HierarchyGrant>
+      </CubeGrant>
+    </SchemaGrant>
+  </Role>
 </Schema>
